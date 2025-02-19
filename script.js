@@ -1,4 +1,4 @@
-const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_DEPLOYMENT_URL";  // 🔹 Replace with your deployment URL
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx2lIAFM3jEyT-wbCLhvvxq0kZzFiEI2i8k__6r8HZ0jsLXG1AVuyHPPXf6Mg1ADTqdsg/exec";  // 🔹 Replace with your deployment URL
 
 // 🟢 Submit Booking Request
 document.getElementById("bookingForm").addEventListener("submit", async (event) => {
