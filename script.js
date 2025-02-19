@@ -80,7 +80,7 @@ document.getElementById("next-month").addEventListener("click", () => {
 
 // 🟢 Submit Booking Request
 document.getElementById("bookingForm").addEventListener("submit", async (event) => {
-    event.preventDefault(); // Prevent page refresh
+    event.preventDefault();
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -89,36 +89,30 @@ document.getElementById("bookingForm").addEventListener("submit", async (event) 
     const comments = document.getElementById("comments").value || "";
 
     if (!name || !email || !checkin || !checkout) {
-        alert("⚠️ Please fill in all required fields.");
+        alert("Please fill in all required fields.");
         return;
     }
 
     const requestData = {
-        action: "newBooking",
-        name: name,
-        email: email,
-        checkin: checkin,
-        checkout: checkout,
-        comments: comments
+        name, email, checkin, checkout, status: "Pending", comments
     };
 
     try {
-        const response = await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+        const response = await fetch("YOUR_NEW_GOOGLE_APPS_SCRIPT_URL", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(requestData),
         });
 
-        const result = await response.text();
-        console.log("✅ Server Response:", result);
-        
-        alert("✅ Booking request submitted successfully!");
-        document.getElementById("bookingForm").reset();
-        fetchBookings(); // Refresh calendar
-
+        if (response.ok) {
+            const result = await response.json();
+            alert("✅ Booking request submitted!");
+            document.getElementById("bookingForm").reset();
+        } else {
+            console.error("❌ Error:", await response.text());
+        }
     } catch (error) {
         console.error("❌ Network error:", error);
-        alert("❌ Error submitting booking. Check console for details.");
     }
 });
 
