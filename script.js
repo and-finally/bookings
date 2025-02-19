@@ -1,4 +1,4 @@
-const GOOGLE_SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyTofzh9MjPmGBAKVwW04phHEFvPt7btR7ckFilpgBsf2JaZaU8bNxHxV4-9LerrAfMsg/exec"; 
+const GOOGLE_SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyWdK_GhCoUjyVcX8FMv4REZy-U-ujFoUkTsxC0XjJmHSfRLfKytr_ACtV9phrfQ46tFw/exec"; 
 
 const calendarContainer = document.getElementById("calendar");
 const currentMonthDisplay = document.getElementById("current-month");
