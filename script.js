@@ -1,45 +1,31 @@
-const API_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL";  // Replace with your deployed Google Apps Script URL
+const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_DEPLOYMENT_URL";  // 🔹 Replace with your deployment URL
 
+// 🟢 Submit Booking Request
 document.getElementById("bookingForm").addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const checkin = document.getElementById("checkin").value;
-    const checkout = document.getElementById("checkout").value;
-    const comments = document.getElementById("comments").value || "";
-
-    if (!name || !email || !checkin || !checkout) {
-        alert("Please fill in all required fields.");
-        return;
-    }
-
     const requestData = {
-        name,
-        email,
-        checkin,
-        checkout,
-        comments
+        "Guest Name": document.getElementById("name").value,  
+        "Email": document.getElementById("email").value,      
+        "Check-in Date": document.getElementById("checkin").value,  
+        "Check-out Date": document.getElementById("checkout").value,  
+        "Comments": document.getElementById("comments").value || ""
     };
 
     try {
-        const response = await fetch(API_URL, {
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify(requestData),
         });
 
-        if (response.ok) {
-            const result = await response.json();
-            alert("✅ Booking request submitted!");
-            document.getElementById("bookingForm").reset();
-        } else {
-            console.error("❌ Error:", await response.text());
-        }
+        const result = await response.text();
+        alert(result);
+        document.getElementById("bookingForm").reset();
     } catch (error) {
-        console.error("❌ Network error:", error);
+        console.error("❌ Error submitting booking:", error);
+        alert("❌ Error submitting booking. Check console for details.");
     }
 });
-
-// Load bookings on page load
-fetchBookings();
