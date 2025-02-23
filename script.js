@@ -1,6 +1,6 @@
 
 // 🔹 Use a public CORS proxy (Heroku or other free services)
-const CORS_PROXY = "https://corsproxy.io/?";
+const CORS_PROXY = "https://api.allorigins.win/raw?url="; // Alternative proxy
 const API_URL = "https://script.google.com/macros/s/AKfycbyPs8RuFHwFHMe0rlxtpVHDoTL_Yoq3U7Xk3c0HZlehxZ_8aeiGH3pFtaYVofce5MRMKQ/exec";
 
 // 🟢 Submit Booking Request
