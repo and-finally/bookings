@@ -1,10 +1,12 @@
+
+// 🔹 Use a public CORS proxy (Heroku or other free services)
+const CORS_PROXY = "https://corsproxy.io/?";
 const API_URL = "https://script.google.com/macros/s/AKfycbyPs8RuFHwFHMe0rlxtpVHDoTL_Yoq3U7Xk3c0HZlehxZ_8aeiGH3pFtaYVofce5MRMKQ/exec";
 
 // 🟢 Submit Booking Request
 document.getElementById("bookingForm").addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    // 🟢 Get form values
     const requestData = {
         "Guest Name": document.getElementById("name").value.trim(),
         "Email": document.getElementById("email").value.trim(),
@@ -23,8 +25,8 @@ document.getElementById("bookingForm").addEventListener("submit", async (event) 
         console.log("🔄 Sending request to:", API_URL);
         console.log("📦 Request Data:", requestData);
 
-        // 🔹 Send data to Google Apps Script
-        const response = await fetch(API_URL, {
+        // 🔹 Use the proxy to bypass CORS
+        const response = await fetch(CORS_PROXY + API_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
