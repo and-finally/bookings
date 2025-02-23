@@ -1,4 +1,4 @@
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7y9Y5rLVHakuiQYWJQlKtl6XBopdg0rLqfnK_nrOGmgBsGduCGvpJqAE5lVUBKCr4yg/exec";  // 🔹 Replace with new URL
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxSL0z8D_d2O_kLbLuMEySykr7jI1iIb4Hv9t2DmvMAlVASvRjPxEULFVg_I_ivX8zDkQ/exec";  // 🔹 Replace with new URL
 
 document.getElementById("bookingForm").addEventListener("submit", async (event) => {
     event.preventDefault();
