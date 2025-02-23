@@ -1,4 +1,4 @@
-const GOOGLE_SCRIPT_URL = "YOUR_NEW_GOOGLE_SCRIPT_DEPLOYMENT_URL";  // 🔹 Replace with new URL
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz7y9Y5rLVHakuiQYWJQlKtl6XBopdg0rLqfnK_nrOGmgBsGduCGvpJqAE5lVUBKCr4yg/exec";  // 🔹 Replace with new URL
 
 document.getElementById("bookingForm").addEventListener("submit", async (event) => {
     event.preventDefault();
