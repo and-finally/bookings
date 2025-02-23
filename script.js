@@ -1,5 +1,4 @@
-// 🔹 Replace with your **latest** Google Apps Script deployment URL
-const API_URL = "https://script.google.com/macros/s/AKfycbxSL0z8D_d2O_kLbLuMEySykr7jI1iIb4Hv9t2DmvMAlVASvRjPxEULFVg_I_ivX8zDkQ/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbyPs8RuFHwFHMe0rlxtpVHDoTL_Yoq3U7Xk3c0HZlehxZ_8aeiGH3pFtaYVofce5MRMKQ/exec";
 
 // 🟢 Submit Booking Request
 document.getElementById("bookingForm").addEventListener("submit", async (event) => {
@@ -33,14 +32,14 @@ document.getElementById("bookingForm").addEventListener("submit", async (event) 
             body: JSON.stringify(requestData)
         });
 
-        const result = await response.json();
-        console.log("✅ Server Response:", result);
+        const data = await response.json();
+        console.log("✅ Server Response:", data);
 
-        if (result.success) {
+        if (data.success) {
             alert("✅ Booking request submitted successfully!");
             document.getElementById("bookingForm").reset();
         } else {
-            alert("❌ Error: " + result.error);
+            alert("❌ Error: " + data.error);
         }
 
     } catch (error) {
