@@ -1,4 +1,4 @@
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,39 +14,8 @@
             style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
     <h2>Request a Booking</h2>
-    <form id="bookingForm">
-        <label>Name: <input type="text" id="name" required></label>
-        <label>Email: <input type="email" id="email" required></label>
-        <label>Start Date: <input type="date" id="startDate" required></label>
-        <label>End Date: <input type="date" id="endDate" required></label>
-        <button type="submit">Submit Request</button>
-    </form>
+    
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdNN-llyA2K97JQtRWwDRUe0LmyiKmrKqHG5K9h6X_KJ0r3Ig/viewform?embedded=true" width="640" height="890" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
-          <script>
-    document.getElementById("bookingForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-        
-        fetch("https://script.google.com/macros/s/AKfycbwzFR1hmb7hu2Y3lNtk2bBz4Rhzdrbg0b8I2mdM7L8htkeFjONmPJ-wAYJ8uQWzF3u6/exec", { 
-            method: "POST",
-            mode: "cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                name: document.getElementById("name").value,
-                email: document.getElementById("email").value,
-                startDate: document.getElementById("startDate").value,
-                endDate: document.getElementById("endDate").value
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === "success") {
-                alert("Booking request submitted successfully!");
-            } else {
-                alert("Error: " + data.message);
-            }
-        })
-        .catch(error => alert("Request failed: " + error.message));
-    });
-</script>
 </body>
 </html>
