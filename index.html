@@ -3,49 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holiday Home Booking</title>
-    <script defer src="script.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        form { max-width: 400px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
-        input, textarea, button { width: 100%; padding: 10px; margin: 10px 0; }
-        table { margin: auto; border-collapse: collapse; }
-        td, th { padding: 10px; border: 1px solid #ddd; }
-        .booked { background-color: grey; }
-        .pending { background-color: red; color: white; }
-        .free { background-color: white; }
-    </style>
+    <title>...and finally - Caravan Booking</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1>Welcome to ...and finally</h1>
+    <h2>Check Availability</h2>
+    
+    <iframe src="https://calendar.google.com/calendar/embed?src=andfinallybookings%40gmail.com&ctz=Europe%2FLondon" 
+            style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-    <h1>Book the Holiday Home</h1>
-
+    <h2>Request a Booking</h2>
     <form id="bookingForm">
-        <label for="name">Your Name:</label>
-        <input type="text" id="name" required>
-
-        <label for="email">Your Email:</label>
-        <input type="email" id="email" required>
-
-        <label for="checkin">Check-in Date:</label>
-        <input type="date" id="checkin" required>
-
-        <label for="checkout">Check-out Date:</label>
-        <input type="date" id="checkout" required>
-
-        <label for="comments">Comments (optional):</label>
-        <textarea id="comments"></textarea>
-
-        <button type="submit">Submit Booking Request</button>
+        <label>Name: <input type="text" id="name" required></label>
+        <label>Email: <input type="email" id="email" required></label>
+        <label>Start Date: <input type="date" id="startDate" required></label>
+        <label>End Date: <input type="date" id="endDate" required></label>
+        <button type="submit">Submit Request</button>
     </form>
 
-    <h2>Availability Calendar</h2>
-    <div>
-        <button id="prev-month">◀ Previous</button>
-        <span id="current-month"></span>
-        <button id="next-month">Next ▶</button>
-    </div>
-    <div id="calendar"></div>
-
+    <script>
+        document.getElementById("bookingForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
+                method: "POST",
+                body: JSON.stringify({
+                    name: document.getElementById("name").value,
+                    email: document.getElementById("email").value,
+                    startDate: document.getElementById("startDate").value,
+                    endDate: document.getElementById("endDate").value
+                })
+            }).then(response => response.json())
+              .then(data => alert("Booking request submitted!"));
+        });
+    </script>
 </body>
 </html>
