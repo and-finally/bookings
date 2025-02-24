@@ -1,60 +1,29 @@
-#calendar-container {
+body {
+    font-family: Arial, sans-serif;
     text-align: center;
-    margin: 20px auto;
+    padding: 20px;
 }
 
-#calendar-header {
+form {
+    max-width: 400px;
+    margin: auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+    flex-direction: column;
 }
 
-#calendar-header button {
-    padding: 5px 10px;
-    font-size: 14px;
-    background-color: #007bff;
+input, button {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    background: green;
     color: white;
     border: none;
     cursor: pointer;
 }
 
-#calendar-header button:hover {
-    background-color: #0056b3;
-}
-
-#current-month {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.calendar {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    border-collapse: collapse;
-    font-size: 12px;
-}
-
-.calendar th,
-.calendar td {
-    border: 1px solid #ddd;
-    padding: 5px;
-    text-align: center;
-    width: 14%;
-}
-
-.calendar td.booked {
-    background-color: grey;
-    color: white;
-}
-
-.calendar td.pending {
-    background-color: red;
-    color: white;
-}
-
-.calendar td.free {
-    background-color: white;
-    color: black;
+button:hover {
+    background: darkgreen;
 }
