@@ -23,29 +23,29 @@
     </form>
 
     <script>
-        document.getElementById("bookingForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            fetch("https://script.google.com/macros/s/AKfycbwzFR1hmb7hu2Y3lNtk2bBz4Rhzdrbg0b8I2mdM7L8htkeFjONmPJ-wAYJ8uQWzF3u6/exec", { // Replace with your Web App URL
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    name: document.getElementById("name").value,
-                    email: document.getElementById("email").value,
-                    startDate: document.getElementById("startDate").value,
-                    endDate: document.getElementById("endDate").value
-                })
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                startDate: document.getElementById("startDate").value,
+                endDate: document.getElementById("endDate").value
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === "success") {
-                    alert("Booking request submitted successfully!");
-                } else {
-                    alert("Error: " + data.message);
-                }
-            })
-            .catch(error => alert("Request failed: " + error.message));
-        });
-    </script>
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                alert("Booking request submitted successfully!");
+            } else {
+                alert("Error: " + data.message);
+            }
+        })
+        .catch(error => alert("Request failed: " + error.message));
+    });
+</script>
 </body>
 </html>
